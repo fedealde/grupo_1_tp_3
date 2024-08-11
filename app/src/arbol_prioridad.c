@@ -28,7 +28,6 @@ void heapifyUp(PriorityQueue *pq, int index)
 // Define enqueue function to add an item to the queue
 _Bool enqueue(PriorityQueue *pq, int value) {
 
-	int aux=0;
 	taskENTER_CRITICAL();
 	{
 
@@ -43,7 +42,7 @@ _Bool enqueue(PriorityQueue *pq, int value) {
 	}
 	taskEXIT_CRITICAL();
 	xSemaphoreGive(Sem_priority_Queue_hndlr);
-	LOGGER_INFO("		enqueue: %d", pq->items[pq->size]);
+
 	return (true);
 
 }
